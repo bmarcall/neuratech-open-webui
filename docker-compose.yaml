@@ -14,14 +14,15 @@ services:
       args:
         OLLAMA_BASE_URL: '/ollama'
       dockerfile: Dockerfile
+    image: bmarcall/neuratech-open-webui:1.5
     # image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
     # ------------------------------- Choose Image -------------------------------
     # Choose an image for the OS you are using
     # ----------------------------------------------------------------------------
-    # image: bmarcall/neuratech-open-webui:1.2        # Linux image
-    # image: bmarcall/neuratech-open-webui:1.3        # Windows/Linux image (compilados para Linux "buildx")
+    # image: bmarcall/neuratech-open-webui:1.0        # Linux image (build with buildx command)
+    # image: bmarcall/neuratech-open-webui:1.3        # Windows/Linux image
     # image: bmarcall/neuratech-open-webui:1.4        # MacOS image obsolete
-      image: bmarcall/neuratech-open-webui:1.5        # MacOS last image
+    # image: bmarcall/neuratech-open-webui:1.5        # MacOS last image
     # ------------------------------- Choose Image -------------------------------
     container_name: open-webui
     volumes:
