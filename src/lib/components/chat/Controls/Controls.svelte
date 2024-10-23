@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { createEventDispatcher, getContext } from 'svelte';
 	const dispatch = createEventDispatcher();
 	const i18n = getContext('i18n');
@@ -10,9 +10,7 @@
 	import Collapsible from '$lib/components/common/Collapsible.svelte';
 
 	import { user } from '$lib/stores';
-
 	export let models = [];
-
 	export let chatFiles = [];
 	export let params = {};
 </script>
@@ -37,7 +35,9 @@
 					{#each chatFiles as file, fileIdx}
 						<FileItem
 							className="w-full"
-							url={`${file?.url}`}
+							item={file}
+							edit={true}
+							url={file?.url ? file.url : null}
 							name={file.name}
 							type={file.type}
 							size={file?.size}
@@ -47,6 +47,9 @@
 
 								chatFiles.splice(fileIdx, 1);
 								chatFiles = chatFiles;
+							}}
+							on:click={() => {
+								console.log(file);
 							}}
 						/>
 					{/each}
